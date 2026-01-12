@@ -9,6 +9,7 @@
 - **Secondary conversion goal:** Book a Call
 - **Fast tertiary actions:** Message on Instagram, LinkedIn, Facebook
 - **Reason:** The audit is the easiest “yes” for cold traffic and creates proof library quickly; booking follows naturally.
+- **Workflow Update:** Switched to "One File Strategy" for simplified Framer import. `OneFileWebsite.tsx` contains the entire homepage struct.
 
 ## Architecture
 - **Gemini:** Strategy & PM
@@ -41,3 +42,4 @@
 - `ParallaxGrid.tsx`: Subtle motion.
 - `OfferCards.tsx`: 3-column layout.
 - `SocialDMBar.tsx`: Floating or sticky.
+- **`OneFileWebsite.tsx`**: Monolithic export for "Paste & Go".

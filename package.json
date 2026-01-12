@@ -21,7 +21,8 @@
     "react-dom": "^18.0.0"
   },
   "dependencies": {
-    "react-player": "^2.14.1"
+    "react-player": "^2.14.1",
+    "lucide-react": "^0.263.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
