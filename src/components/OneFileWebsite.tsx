@@ -21,8 +21,8 @@ import { useState, useEffect } from "react"
 // import ReactPlayer from "react-player"
 
 // FOR FRAMER: Comment out the line above and UNCOMMENT the lines below.
-import { Play, ArrowRight, Zap, BarChart, Instagram, Linkedin, Mail, Menu, X, CheckCircle, Layers, Cpu, Globe } from "https://esm.sh/lucide-react?deps=react@18.2.0"
-import ReactPlayer from "https://esm.sh/react-player?deps=react@18.2.0"
+import { Play, ArrowRight, Zap, BarChart, Instagram, Linkedin, Mail, Menu, X, CheckCircle, Layers, Cpu, Globe } from "https://esm.sh/lucide-react@0.263.1?deps=react@18.2.0"
+import ReactPlayer from "https://esm.sh/react-player@2.14.1?deps=react@18.2.0"
 // import { addPropertyControls, ControlType } from "framer"
 
 // --- Tailwind Injection Helper ---
@@ -279,7 +279,7 @@ export default function MindbenT_Homepage(props: MindBenTProps) {
             )}
 
             {/* Hero Section */}
-            <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+            <section className="relative min-h-screen w-full bg-black overflow-hidden flex flex-col items-center justify-center pb-32">
                 {/* Video Background */}
                 <div className="absolute inset-0 z-0 bg-black">
                     <ReactPlayer
@@ -307,11 +307,11 @@ export default function MindbenT_Homepage(props: MindBenTProps) {
                 </div>
 
                 {/* Content */}
-                <div className="relative z-20 max-w-5xl mx-auto px-6 text-center space-y-8">
-                    <div className="inline-block px-4 py-1 border border-pink-500 rounded-full text-pink-500 text-xs font-bold tracking-widest uppercase mb-4 animate-pulse">
+                <div className="relative z-20 max-w-5xl mx-auto px-6 text-center space-y-5">
+                    <div className="inline-block px-4 py-1 border border-pink-500 rounded-full text-pink-500 text-xs font-bold tracking-widest uppercase mb-2 animate-pulse">
                         {props.heroTagline}
                     </div>
-                    <h1 className="text-6xl md:text-8xl font-black leading-none tracking-tighter mix-blend-screen">
+                    <h1 className="text-6xl md:text-8xl font-black leading-none tracking-tighter">
                         {props.heroHeadlineOne} <br />
                         {props.heroHeadlineTwo} <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
@@ -321,7 +321,7 @@ export default function MindbenT_Homepage(props: MindBenTProps) {
                     <p className="text-gray-200 text-lg md:text-2xl max-w-2xl mx-auto font-medium drop-shadow-md">
                         {props.heroDescription}
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+                    <div className="flex flex-col sm:flex-row gap-6 justify-center pt-6">
                         <button className="px-10 py-5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full font-black text-xl hover:shadow-[0_0_40px_rgba(236,72,153,0.6)] hover:scale-105 transition-all flex items-center justify-center gap-3 animate-bounce-subtle">
                             GET YOUR FREE AUDIT <ArrowRight size={24} />
                         </button>
