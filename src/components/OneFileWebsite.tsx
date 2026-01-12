@@ -155,6 +155,8 @@ interface MindBenTProps {
     heroHeadlineAccent: string;
     heroDescription: string;
     ctaButtonText: string;
+    heroVideoUrl?: string;
+    heroVideoUrlMobile?: string;
 }
 
 // We add 'props' here to accept inputs from the Framer sidebar
@@ -368,9 +370,34 @@ export default function MindbenT_Homepage(props: MindBenTProps) {
             {/* Hero Section */}
             <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black">
                 {/* Video Background with Cover Fix */}
-                <div className="video-wrapper">
+                {/* Desktop Video (Hidden on Mobile) */}
+                <div className="video-wrapper hidden md:block">
                     <ResolvedVideoPlayer
-                        url="https://vimeo.com/990744884/dfcf032b50"
+                        url={props.heroVideoUrl || "https://vimeo.com/990744884/dfcf032b50"}
+                        playing
+                        loop
+                        muted
+                        width="100%"
+                        height="100%"
+                        config={{
+                            vimeo: {
+                                playerOptions: {
+                                    background: 1,
+                                    autoplay: 1,
+                                    loop: 1,
+                                    byline: 0,
+                                    portrait: 0,
+                                    title: 0
+                                }
+                            }
+                        }}
+                    />
+                </div>
+
+                {/* Mobile Video (Visible only on Mobile) */}
+                <div className="video-wrapper block md:hidden">
+                    <ResolvedVideoPlayer
+                        url={props.heroVideoUrlMobile || props.heroVideoUrl || "https://vimeo.com/990744884/dfcf032b50"}
                         playing
                         loop
                         muted
@@ -632,6 +659,8 @@ MindbenT_Homepage.defaultProps = {
     heroDescription:
         "Direct, data-driven strategies injected with chaos and personality. Stop scrolling, start stopping the scroll.",
     ctaButtonText: "Get Your Free Audit",
+    heroVideoUrl: "https://vimeo.com/990744884/dfcf032b50",
+    heroVideoUrlMobile: "https://vimeo.com/990744884/dfcf032b50", // Placeholder until user provides vertical reel
 }
 
 // --- FRAMER PROPERTY CONTROLS (UNCOMMENT THIS BLOCK IN FRAMER) ---
