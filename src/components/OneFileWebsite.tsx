@@ -192,25 +192,28 @@ export default function MindbenT_Homepage(props: MindBenTProps) {
     const SERVICES_DATA = [
         {
             Icon: Layers,
-            title: "THE BLUEPRINT",
-            subtitle: "STRATEGY & BRAND DNA",
-            desc: "We don't guess. We engineer. We decode your brand's DNA and build a content roadmap designed to dominate algorithms and infiltrate subcultures.",
+            title: "Content Strategy + Direction",
+            subtitle: "Positioning • Concepts • Content System",
+            desc: "We build the plan behind the content—what to say, what to show, and how to stay consistent without burning out.",
+            details: "Includes: content pillars • hooks/topics • light scripting • shot plans • creative direction",
             color: "border-pink-500",
             hover: "hover:shadow-[0_0_30px_#FF00FF]",
         },
         {
             Icon: Cpu,
-            title: "THE DISTORTION",
-            subtitle: "PRODUCTION & VFX",
-            desc: "High-voltage visuals that stop the scroll. From 3D motion graphics to cinematic edits, we create content that feels like a glitch in the simulation.",
+            title: "Production",
+            subtitle: "Video • Photo • Events • Drone",
+            desc: "High-end capture for brands, spaces, and experiences—designed to look premium and perform on social.",
+            details: "Includes: talking heads • hospitality/interiors • event coverage • drone/aerial • on-site capture days",
             color: "border-cyan-400",
             hover: "hover:shadow-[0_0_30px_#00FFFF]",
         },
         {
             Icon: Globe,
-            title: "THE VIRAL LOOP",
-            subtitle: "DISTRIBUTION & GROWTH",
-            desc: "Content without eyeballs is just noise. We deploy aggressive growth tactics, community hacking, and trend-jacking to ensure your signal is heard.",
+            title: "Channel Management + Distribution",
+            subtitle: "Post • Publish • Channel Management",
+            desc: "You don’t just get files—you get reach. We edit, version, write captions, and publish across multiple networks so your content works harder everywhere.",
+            details: "Includes: vertical + horizontal versions • captions/hashtags • scheduling • cross-platform posting • basic channel upkeep",
             color: "border-yellow-400",
             hover: "hover:shadow-[0_0_30px_#FFFF00]",
         },
@@ -391,9 +394,6 @@ export default function MindbenT_Homepage(props: MindBenTProps) {
 
                 {/* Content */}
                 <div className="relative z-20 w-full px-6 md:px-12 text-center space-y-10">
-                    <div className="inline-block px-6 py-2 border-2 border-pink-500 rounded-full text-pink-500 text-sm font-black tracking-[0.3em] uppercase mb-4 animate-pulse">
-                        {props.heroTagline}
-                    </div>
                     <h1 className="text-7xl md:text-[10rem] font-black leading-[0.85] tracking-tighter text-white mix-blend-screen">
                         {props.heroHeadlineOne} <br />
                         {props.heroHeadlineTwo} <br />
@@ -401,6 +401,9 @@ export default function MindbenT_Homepage(props: MindBenTProps) {
                             {props.heroHeadlineAccent}
                         </span>
                     </h1>
+                    <div className="inline-block px-6 py-2 border-2 border-pink-500 rounded-full text-pink-500 text-sm font-black tracking-[0.3em] uppercase mb-4 animate-pulse">
+                        {props.heroTagline}
+                    </div>
                     <p className="text-gray-200 text-xl md:text-3xl max-w-4xl mx-auto font-bold drop-shadow-xl leading-relaxed">
                         {props.heroDescription}
                     </p>
@@ -450,8 +453,12 @@ export default function MindbenT_Homepage(props: MindBenTProps) {
                                 >
                                     {service.subtitle}
                                 </p>
-                                <p className="text-gray-400 leading-relaxed">
+                                <p className="text-gray-400 leading-relaxed mb-4">
                                     {service.desc}
+                                </p>
+                                {/* New Details Section */}
+                                <p className="text-xs text-gray-500 font-mono border-t border-gray-800 pt-3 opacity-80">
+                                    {service.details}
                                 </p>
                                 <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     <ArrowRight
@@ -489,33 +496,33 @@ export default function MindbenT_Homepage(props: MindBenTProps) {
                             className={`relative p-8 rounded-3xl bg-zinc-900 border-2 ${pkg.color} ${pkg.popular ? "transform md:-translate-y-4 shadow-[0_0_30px_rgba(236,72,153,0.2)]" : "border-opacity-30"}`}
                         >
                             {pkg.popular && (
-                                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-pink-500 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                                <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-pink-500 text-white px-8 py-2 rounded-full text-sm font-black uppercase tracking-widest shadow-lg">
                                     Most Popular
                                 </div>
                             )}
-                            <h3 className="text-2xl font-bold mb-2">
+                            <h3 className="text-3xl md:text-4xl font-black mb-4 text-white">
                                 {pkg.name}
                             </h3>
-                            <div className="text-4xl font-black mb-4">
+                            <div className="text-6xl md:text-7xl font-black mb-6 tracking-tighter">
                                 {pkg.price}
-                                <span className="text-lg text-gray-500 font-normal">
+                                <span className="text-xl md:text-2xl text-gray-500 font-bold ml-2">
                                     /mo
                                 </span>
                             </div>
-                            <p className="text-gray-400 mb-2 h-12">
+                            <p className="text-gray-400 text-xl mb-4 h-16 font-medium leading-tight">
                                 {pkg.desc}
                             </p>
-                            <ul className="space-y-4 mb-8">
+                            <ul className="space-y-6 mb-12">
                                 {pkg.features.map((feat, i) => (
                                     <li
                                         key={i}
-                                        className="flex items-start gap-3 text-sm"
+                                        className="flex items-start gap-4 text-lg font-medium text-gray-300"
                                     >
                                         <CheckCircle
-                                            size={16}
-                                            className={`flex-shrink-0 mt-0.5 ${pkg.popular
+                                            size={24}
+                                            className={`flex-shrink-0 mt-1 ${pkg.popular
                                                 ? "text-pink-500"
-                                                : "text-gray-500"
+                                                : "text-gray-600"
                                                 }`}
                                         />
                                         {feat}
@@ -523,7 +530,7 @@ export default function MindbenT_Homepage(props: MindBenTProps) {
                                 ))}
                             </ul>
                             <button
-                                className={`w-full py-4 rounded-xl font-bold text-white transition-all hover:opacity-90 ${pkg.btn}`}
+                                className={`w-full py-6 rounded-2xl font-black text-xl text-white transition-all hover:opacity-90 hover:scale-[1.02] ${pkg.btn}`}
                             >
                                 Select Package
                             </button>
@@ -535,45 +542,45 @@ export default function MindbenT_Homepage(props: MindBenTProps) {
             {/* The Audit (Lead Gen) - Adjusted Top Margin */}
             <section
                 id="audit"
-                className="py-16 bg-gradient-to-b from-black to-purple-900/20"
+                className="py-12 md:py-16 bg-gradient-to-b from-black to-purple-900/20"
             >
-                <div className="max-w-4xl mx-auto px-6 text-center bg-zinc-900/50 backdrop-blur-lg border border-white/10 rounded-3xl p-12 relative overflow-hidden">
+                <div className="max-w-5xl mx-auto px-6 text-center bg-zinc-900/50 backdrop-blur-lg border border-white/10 rounded-[3rem] p-8 md:p-16 relative overflow-hidden">
                     {/* Decorative elements */}
-                    <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-pink-500 rounded-full blur-3xl opacity-10"></div>
-                    <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-blue-500 rounded-full blur-3xl opacity-10"></div>
+                    <div className="absolute top-0 right-0 -mr-24 -mt-24 w-80 h-80 bg-pink-500 rounded-full blur-[100px] opacity-20"></div>
+                    <div className="absolute bottom-0 left-0 -ml-24 -mb-24 w-80 h-80 bg-blue-500 rounded-full blur-[100px] opacity-20"></div>
 
                     <div className="relative z-10">
-                        <div className="inline-flex items-center justify-center w-16 h-16 bg-pink-500/20 rounded-full mb-6">
-                            <BarChart className="text-pink-500" size={32} />
+                        <div className="inline-flex items-center justify-center w-20 h-20 bg-pink-500/20 rounded-full mb-6 md:mb-8">
+                            <BarChart className="text-pink-500" size={40} />
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                        <h2 className="text-5xl md:text-7xl font-black mb-6 md:mb-8 leading-tight">
                             Is Your Social Media <br />{" "}
                             <span className="text-pink-500 pink-motion">
                                 Leaking Money?
                             </span>
                         </h2>
-                        <p className="text-gray-300 text-lg mb-8 max-w-xl mx-auto">
+                        <p className="text-gray-300 text-2xl mb-8 md:mb-12 max-w-2xl mx-auto font-medium">
                             Get a free, no-holds-barred audit of your current
                             digital presence. We'll tell you exactly what's
                             working, what's failing, and how to fix it.
                         </p>
 
-                        <form className="max-w-md mx-auto space-y-4">
+                        <form className="max-w-2xl mx-auto space-y-6">
                             <input
                                 type="email"
                                 placeholder="Enter your email address"
-                                className="w-full px-6 py-4 bg-black border border-gray-700 rounded-xl focus:outline-none focus:border-pink-500 text-white"
+                                className="w-full px-8 py-6 bg-black border-2 border-gray-800 rounded-2xl focus:outline-none focus:border-pink-500 text-white text-xl font-bold placeholder:font-medium"
                             />
                             <input
                                 type="text"
                                 placeholder="Your Instagram Handle (@)"
-                                className="w-full px-6 py-4 bg-black border border-gray-700 rounded-xl focus:outline-none focus:border-pink-500 text-white"
+                                className="w-full px-8 py-6 bg-black border-2 border-gray-800 rounded-2xl focus:outline-none focus:border-pink-500 text-white text-xl font-bold placeholder:font-medium"
                             />
-                            <button className="w-full bg-white text-black font-bold text-xl py-4 rounded-xl hover:bg-pink-500 hover:text-white transition-all">
+                            <button className="w-full bg-white text-black font-black text-2xl py-6 rounded-2xl hover:bg-pink-500 hover:text-white transition-all transform hover:scale-[1.02]">
                                 Reveal My Score
                             </button>
                         </form>
-                        <p className="text-xs text-gray-500 mt-4">
+                        <p className="text-sm text-gray-500 mt-6 font-bold uppercase tracking-widest">
                             No credit card required.
                         </p>
                     </div>
