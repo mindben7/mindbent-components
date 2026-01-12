@@ -335,7 +335,7 @@ export default function MindbenT_Homepage(props: MindBenTProps) {
                     </button>
 
                     <button
-                        className="md:hidden"
+                        className="lg:hidden"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                     >
                         {isMenuOpen ? <X /> : <Menu />}
@@ -393,7 +393,7 @@ export default function MindbenT_Homepage(props: MindBenTProps) {
                 <div className="absolute inset-0 bg-black/60 z-10 pointer-events-none"></div>
 
                 {/* Content */}
-                <div className="relative z-20 w-full px-6 md:px-12 text-center space-y-10">
+                <div className="relative z-20 w-full px-6 md:px-12 text-center space-y-10 pt-32 md:pt-48 pb-12">
                     <h1 className="text-7xl md:text-[10rem] font-black leading-[0.85] tracking-tighter text-white mix-blend-screen">
                         {props.heroHeadlineOne} <br />
                         {props.heroHeadlineTwo} <br />
@@ -440,8 +440,11 @@ export default function MindbenT_Homepage(props: MindBenTProps) {
                         {RESOLVED_SERVICES.map((service, index) => (
                             <div
                                 key={index}
-                                className={`bg-black border-2 ${service.color} p-8 rounded-3xl relative group transition-all duration-300 hover:-translate-y-2 ${service.hover}`}
+                                className={`bg-gradient-to-b from-zinc-900 to-black border ${service.color} p-8 rounded-3xl relative group transition-all duration-300 hover:-translate-y-2 ${service.hover} overflow-hidden`}
                             >
+                                {/* Subtle Luma Cloud / Glow */}
+                                <div className="absolute -top-24 -right-24 w-80 h-80 bg-white/5 rounded-full blur-[80px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                                 <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300">
                                     <service.IconComponent size={48} className={service.color.replace("border", "text")} />
                                 </div>
@@ -453,11 +456,11 @@ export default function MindbenT_Homepage(props: MindBenTProps) {
                                 >
                                     {service.subtitle}
                                 </p>
-                                <p className="text-gray-400 leading-relaxed mb-4">
+                                <p className="text-gray-300 text-lg leading-relaxed mb-6 font-medium">
                                     {service.desc}
                                 </p>
                                 {/* New Details Section */}
-                                <p className="text-xs text-gray-500 font-mono border-t border-gray-800 pt-3 opacity-80">
+                                <p className="text-sm text-gray-400 font-medium border-t border-gray-800 pt-4 opacity-90 leading-relaxed">
                                     {service.details}
                                 </p>
                                 <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
