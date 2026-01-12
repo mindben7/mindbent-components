@@ -1,0 +1,35 @@
+{
+  "name": "mindbent-framer-components",
+  "version": "1.0.0",
+  "description": "Custom React components for MindBenT Media Framer site",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "framer",
+    "react",
+    "components"
+  ],
+  "author": "MindBenT Media",
+  "license": "MIT",
+  "peerDependencies": {
+    "framer": "^2.0.0",
+    "framer-motion": "^10.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "react-player": "^2.14.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "typescript": "^5.0.0",
+    "framer": "latest",
+    "framer-motion": "latest",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  }
+}
