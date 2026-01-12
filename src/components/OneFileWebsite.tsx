@@ -390,7 +390,24 @@ export default function MindbenT_Homepage(props: MindBenTProps) {
                         }}
                     />
                 </div>
-                <div className="absolute inset-0 bg-black/60 z-10 pointer-events-none"></div>
+                {/* CRT/Signal Overlays */}
+                <div className="absolute inset-0 bg-black/40 z-10 pointer-events-none"></div>
+
+                {/* Scanlines */}
+                <div
+                    className="absolute inset-0 z-10 pointer-events-none opacity-20"
+                    style={{
+                        backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, #000 3px)'
+                    }}
+                ></div>
+
+                {/* Static Noise */}
+                <div
+                    className="absolute inset-0 z-10 pointer-events-none opacity-[0.03] mix-blend-overlay"
+                    style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E")`
+                    }}
+                ></div>
 
                 {/* Content */}
                 <div className="relative z-20 w-full px-6 md:px-12 text-center space-y-10 pt-32 md:pt-48 pb-12">
