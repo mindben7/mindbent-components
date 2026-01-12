@@ -3,24 +3,26 @@ import { useState, useEffect } from "react"
 
 // --- IMPORT INSTRUCTIONS ---
 // FOR PREVIEW HERE: Use the standard import below.
-import {
-    Play,
-    ArrowRight,
-    Zap,
-    BarChart,
-    Instagram,
-    Linkedin,
-    Mail,
-    Menu,
-    X,
-    CheckCircle,
-    Layers,
-    Cpu,
-    Globe,
-} from "lucide-react"
+// import {
+//     Play,
+//     ArrowRight,
+//     Zap,
+//     BarChart,
+//     Instagram,
+//     Linkedin,
+//     Mail,
+//     Menu,
+//     X,
+//     CheckCircle,
+//     Layers,
+//     Cpu,
+//     Globe,
+// } from "lucide-react"
+// import ReactPlayer from "react-player"
 
 // FOR FRAMER: Comment out the line above and UNCOMMENT the lines below.
-// import { Play, ArrowRight, Zap, BarChart, Instagram, Linkedin, Mail, Menu, X, CheckCircle, Layers, Cpu, Globe } from "https://esm.sh/lucide-react?deps=react@18.2.0"
+import { Play, ArrowRight, Zap, BarChart, Instagram, Linkedin, Mail, Menu, X, CheckCircle, Layers, Cpu, Globe } from "https://esm.sh/lucide-react?deps=react@18.2.0"
+import ReactPlayer from "https://esm.sh/react-player?deps=react@18.2.0"
 // import { addPropertyControls, ControlType } from "framer"
 
 // --- Tailwind Injection Helper ---
@@ -277,48 +279,52 @@ export default function MindbenT_Homepage(props: MindBenTProps) {
             )}
 
             {/* Hero Section */}
-            <section className="relative pt-32 pb-20 px-6 md:pt-48 md:pb-32 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                {/* Left: Copy */}
-                <div className="space-y-8 z-10">
+            <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+                {/* Video Background */}
+                <div className="absolute inset-0 z-0 bg-black">
+                    <ReactPlayer
+                        url="https://vimeo.com/990744884/dfcf032b50"
+                        playing
+                        loop
+                        muted
+                        width="100%"
+                        height="100%"
+                        style={{ position: 'absolute', top: 0, left: 0 }}
+                        config={{
+                            vimeo: {
+                                playerOptions: {
+                                    background: 1,
+                                    autoplay: 1,
+                                    loop: 1,
+                                    byline: 0,
+                                    portrait: 0,
+                                    title: 0
+                                }
+                            }
+                        }}
+                    />
+                    <div className="absolute inset-0 bg-black/60 z-10"></div>
+                </div>
+
+                {/* Content */}
+                <div className="relative z-20 max-w-5xl mx-auto px-6 text-center space-y-8">
                     <div className="inline-block px-4 py-1 border border-pink-500 rounded-full text-pink-500 text-xs font-bold tracking-widest uppercase mb-4 animate-pulse">
                         {props.heroTagline}
                     </div>
-                    <h1 className="text-6xl md:text-8xl font-black leading-none tracking-tighter">
+                    <h1 className="text-6xl md:text-8xl font-black leading-none tracking-tighter mix-blend-screen">
                         {props.heroHeadlineOne} <br />
                         {props.heroHeadlineTwo} <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
                             {props.heroHeadlineAccent}
                         </span>
                     </h1>
-                    <p className="text-gray-400 text-lg md:text-xl max-w-md">
+                    <p className="text-gray-200 text-lg md:text-2xl max-w-2xl mx-auto font-medium drop-shadow-md">
                         {props.heroDescription}
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4">
-                        <button className="px-8 py-4 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full font-bold text-lg hover:shadow-[0_0_20px_rgba(236,72,153,0.5)] transition-all flex items-center justify-center gap-2">
-                            {props.ctaButtonText} <ArrowRight size={20} />
+                    <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+                        <button className="px-10 py-5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full font-black text-xl hover:shadow-[0_0_40px_rgba(236,72,153,0.6)] hover:scale-105 transition-all flex items-center justify-center gap-3 animate-bounce-subtle">
+                            GET YOUR FREE AUDIT <ArrowRight size={24} />
                         </button>
-                        <button className="px-8 py-4 border border-gray-700 rounded-full font-bold text-lg hover:bg-gray-900 transition-all flex items-center justify-center gap-2">
-                            <Play size={20} className="fill-current" /> Watch
-                            Reel
-                        </button>
-                    </div>
-                </div>
-
-                {/* Right: Video/Visual */}
-                <div className="relative h-[500px] w-full rounded-2xl overflow-hidden group">
-                    <div className="absolute inset-0 bg-gray-900 flex items-center justify-center overflow-hidden">
-                        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-900 via-purple-900 to-black opacity-80"></div>
-                        <div className="absolute w-64 h-64 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob top-0 -left-4"></div>
-                        <div className="absolute w-64 h-64 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000 bottom-0 right-0"></div>
-
-                        <div className="z-10 text-center">
-                            <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20 group-hover:scale-110 transition-transform cursor-pointer">
-                                <Play className="fill-white w-8 h-8 ml-1" />
-                            </div>
-                            <p className="font-mono text-sm tracking-widest text-white/70">
-                                PLAY SHOWREEL
-                            </p>
-                        </div>
                     </div>
                 </div>
             </section>
